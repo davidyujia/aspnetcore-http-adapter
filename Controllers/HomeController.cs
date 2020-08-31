@@ -58,8 +58,8 @@ namespace HttpAdapter.Controllers
             }
 
             if (string.IsNullOrWhiteSpace(model.Url)
-            || !model.Url.StartsWith("http://", StringComparison.CurrentCultureIgnoreCase)
-            || !model.Url.StartsWith("https://", StringComparison.CurrentCultureIgnoreCase))
+            || (!model.Url.StartsWith("http://", StringComparison.CurrentCultureIgnoreCase)
+            && !model.Url.StartsWith("https://", StringComparison.CurrentCultureIgnoreCase)))
             {
                 return BadRequest("Url must start with \"http://\" or \"https://\"");
             }
